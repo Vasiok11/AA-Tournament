@@ -1,4 +1,4 @@
-# The Apex Predator Strategy
+# The womp womp Strategy
 
 ## Overview
 The "womp_womp" strategy is designed to maximize points through strategic defection against unpredictable opponents, with occasional cooperation only when mathematically advantageous.
