@@ -1,14 +1,14 @@
-# The womp womp Strategy
+# The Womp Womp Strategy (Round 2)
 
 ## Overview
-The "womp_womp" strategy is designed to maximize points through strategic defection against unpredictable opponents, with occasional cooperation only when mathematically advantageous.
+Building on the "womp_womp" strategy from Round 1, this enhanced version introduces opponent selection capabilities to maximize points in the Iterated Prisoner's Dilemma tournament. The strategy continues to employ strategic defection with calculated cooperation, now with the added dimension of choosing the most profitable opponents.
 
 ## Strategy Logic
 
 ### Core Principles
 The strategy operates on the following key principles:
 
-1. **Defection Dominance**: Against random or unpredictable opponents, defection consistently yields higher expected value, which forms the foundation of this strategy.
+1. **Defection Dominance**: Against random or unpredictable opponents, defection consistently yields higher expected value, which remains the foundation of this strategy.
 
 2. **Minimal Cooperation**: The algorithm employs cooperation sparingly and only in specific scenarios:
    - Initial move (to establish baseline)
@@ -22,13 +22,29 @@ The strategy operates on the following key principles:
 
 4. **Ruthless Optimization**: The primary goal is point maximization rather than mutual benefit, leading to significantly more defections than cooperations.
 
+### Round 2 Enhancements
+
+5. **Opponent Selection Strategy**: The algorithm now intelligently selects which opponents to play against:
+   - Prioritizes opponents with high cooperation rates (more exploitable)
+   - Calculates expected value from each potential opponent based on past interactions
+   - Balances exploitation of known profitable opponents with exploration of new ones
+
+6. **Profitability Scoring**: Each opponent receives a score based on:
+   - Average points earned per round against them
+   - Their historical cooperation rate
+   - Number of rounds already played with them
+
 ### Decision Workflow
 
-1. First move is always cooperation to establish a baseline
-2. Calculate opponent's cooperation statistics for classification
-3. Apply aggressive defection as the default strategy (60-80% of moves)
-4. Inject periodic cooperation only when strategically beneficial:
-   - To reset a potentially beneficial pattern
-   - To exploit certain predictable opponent behaviors
-   - Based on game phase considerations
-5. Against random opponents, maintain heavy defection bias for mathematical advantage
+1. **Move Determination**: 
+   - First move is always cooperation to establish a baseline
+   - Calculate opponent's cooperation statistics for classification
+   - Apply aggressive defection as the default strategy
+   - Inject periodic cooperation only when strategically beneficial
+
+2. **Opponent Selection**:
+   - Prioritize completely new opponents if available (exploration)
+   - Calculate profitability scores for all previously encountered opponents
+
+
+The strategy aims to identify and repeatedly engage with the most exploitable opponents while maintaining the  defection-based approach from Round 1.
